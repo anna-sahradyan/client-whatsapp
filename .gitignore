@@ -4,10 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
-
+/src/component/clientID.js
 # testing
 /coverage
-.clientID.js
+
 # production
 /build
 
