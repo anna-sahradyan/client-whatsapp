@@ -1,10 +1,11 @@
 import React from 'react';
+import Messenger from "./components/messenger/Messenger";
 
 const App = () => {
     return (
-        <div>
-          
-        </div>
+        <>
+          <Messenger/>
+        </>
     );
 };
 
