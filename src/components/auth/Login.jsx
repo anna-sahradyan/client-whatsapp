@@ -10,21 +10,24 @@ const Login = () => {
     }
     return (
         <>
-            <Dialog onClose={handleClose} open={true}
-                    PaperProps={{sx: dialog}}>
+            <Dialog
+                open={true}
+                      BackdropProps={{style: {backgroundColor: 'unset'}}}
+                      maxWidth={'md'}
+                      PaperProps={{ sx: dialog }}>
                 <Component>
                     <Container><Title>Use WhatsApp on your computer:</Title>
                         <ListStyle>
-                            <ListItem>1.Open WhatsApp on your phone</ListItem>
-                            <ListItem>2.Tap <strong>Menu</strong> or <strong> Settings</strong>and select <strong>Linked
-                                Devices</strong></ListItem>
-                            <ListItem>3. Tap on <strong>Link a device</strong></ListItem>
+                            <ListItem>1.Open WhatsApp on your phone </ListItem>
+                            <ListItem> 2.Tap <b> Menu </b> or <b> Settings </b> and select <b> Linked
+                                Devices</b> </ListItem>
+                            <ListItem>3. Tap on <b> Link a device </b> </ListItem>
                             <ListItem>4.Point your phone to this screen to capture the QR code</ListItem>
                         </ListStyle>
                     </Container>
                     <Box style={{position:`relative`}}>
                         <QRCode src={qrCodeImage} alt="qr-code" className="qr_code"/>
-                        <Box style={{position:`absolute`,top:`50%`,transform:`translateX(25%)`}}>
+                        <Box style={{position: 'absolute', top: '50%', transform: 'translateX(25%) translate(10%)'}}>
                             <GoogleLoginComponent/>
                         </Box>
 

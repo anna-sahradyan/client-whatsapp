@@ -1,13 +1,15 @@
 import {Box, List, styled, Typography} from "@mui/material";
 
 export const dialog = {
-    height: `96%`,
-    marginTop: `12%`,
-    width: `66%`,
-    maxWidth: `100%`,
-    maxHeight: `100%`,
-    boxShadow: `none`,
-    overflow: `none`
+    marginTop: '12%',
+    height: '95%',
+    width: '60%',
+    maxWidth: '100%',
+    maxHeight: '100%',
+    borderRadius: 0,
+    boxShadow: 'none',
+    overflow: 'hidden'
+
 };
 export const QRCode = styled(`img`)({
     height: 264,
@@ -16,8 +18,10 @@ export const QRCode = styled(`img`)({
 });
 export const Title = styled(Typography)`
   font-size: 28px;
-  color: #41525d;
+  //color: #41525d;
+  color: #525252;
   font-weight: 300;
+  font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
 
 `;
 export const Component = styled(Box)`
@@ -34,6 +38,7 @@ export const ListStyle = styled(List)`
     margin-top: 18px;
     font-size: 18px;
     line-height: 28px;
+    color: #4a4a4a;
 
   }
 

@@ -1,0 +1,38 @@
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+
+
+}
+
+a {
+    text-decoration: none;
+
+}
+
+code {
+    font-family:source-code-pro, Menlo,Monaco,Consolas,"Courier New",monospace ;
+}
+
+body {
+    position: relative;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+
+}
+
+html {
+    height: 100%;
+
+}
+
+
+
+
+

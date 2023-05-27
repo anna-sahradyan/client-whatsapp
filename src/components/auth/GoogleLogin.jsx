@@ -5,7 +5,6 @@ import {AuthContext} from "../../context/AuthProvider";
 
 
 const GoogleLoginComponent = () => {
-
     const {setAuth} = useContext(AuthContext);
     const onLoginSuccess = (res) => {
         const decoded = jwt_decode(res.credential);
@@ -13,8 +12,8 @@ const GoogleLoginComponent = () => {
         setAuth(decoded);
     }
 
-    const onLoginError = (res) => {
-        console.log(res)
+    const onLoginError =  (res) => {
+        console.log(`Login Failed:`, res);
     }
     return (
         <>
