@@ -42,6 +42,7 @@ export const Image = styled(`img`)({
     borderRadius: `50%`,
     padding: `25px 0`,
     objectFit: `cover`,
+    boxSizing: `content-box`
 
 });
 export const BoxWrapper = styled(Box)`

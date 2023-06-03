@@ -1,14 +1,14 @@
-import {Box, List, styled, Typography} from "@mui/material";
+import {Box, Button, List, styled, TextField, Typography} from "@mui/material";
 
 export const dialog = {
     marginTop: '12%',
     height: '95%',
-    width: '60%',
+    width: '65%',
     maxWidth: '100%',
     maxHeight: '100%',
     borderRadius: 0,
     boxShadow: 'none',
-    overflow: 'hidden'
+    // overflow: 'hidden'
 
 };
 export const QRCode = styled(`img`)({
@@ -41,5 +41,28 @@ export const ListStyle = styled(List)`
     color: #4a4a4a;
 
   }
+
+`;
+
+export const WhatsAppLogin = styled(Box)`
+  width: 450px;
+  height: 200px;
+  margin: -35px auto;
+  display: flex;
+  flex-wrap: wrap;
+  
+
+
+`;
+
+export const Input = styled(TextField)`
+  width: 90%;
+  height: 40px;
+  margin: 30px 20px 0 20px;
+`;
+export const LoginButton = styled(Button)`
+  width: 90%;
+  height: 40px;
+  margin: 20px 20px 0 20px;
 
 `;

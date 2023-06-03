@@ -1,20 +1,28 @@
 import React from 'react';
 import {Box, Dialog, ListItem} from "@mui/material";
-import {Component, Container, dialog, ListStyle, QRCode, Title} from "./login.styled";
+import {
+    Component,
+    Container,
+    dialog,
+    ListStyle,
+    QRCode,
+    Title,
+
+
+} from "./login.styled";
 import {qrCodeImage} from "../constants/data";
 import GoogleLoginComponent from "./GoogleLogin";
 
-const Login = () => {
-    const handleClose = () => {
 
-    }
+
+const Login = () => {
     return (
         <>
             <Dialog
                 open={true}
-                      BackdropProps={{style: {backgroundColor: 'unset'}}}
-                      maxWidth={'md'}
-                      PaperProps={{ sx: dialog }}>
+                BackdropProps={{style: {backgroundColor: 'unset'}}}
+                maxWidth={'md'}
+                PaperProps={{sx: dialog}}>
                 <Component>
                     <Container><Title>Use WhatsApp on your computer:</Title>
                         <ListStyle>
@@ -25,7 +33,7 @@ const Login = () => {
                             <ListItem>4.Point your phone to this screen to capture the QR code</ListItem>
                         </ListStyle>
                     </Container>
-                    <Box style={{position:`relative`}}>
+                    <Box style={{position: `relative`}}>
                         <QRCode src={qrCodeImage} alt="qr-code" className="qr_code"/>
                         <Box style={{position: 'absolute', top: '50%', transform: 'translateX(25%) translate(10%)'}}>
                             <GoogleLoginComponent/>
@@ -33,6 +41,8 @@ const Login = () => {
 
                     </Box>
                 </Component>
+
+
             </Dialog>
         </>
     );

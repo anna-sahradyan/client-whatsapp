@@ -12,8 +12,8 @@ const Profile = () => {
                 < Image src={auth.picture} alt="dp"/>
             </ImageContainer>
             <BoxWrapper>
-                <Typography>Your Name</Typography>
                 <Typography>{auth.name}</Typography>
+                <Typography>Anna</Typography>
             </BoxWrapper>
             <Desc>
                 <Typography>This is not  your username or pin. This name will be visible to your Whatsap contacts </Typography>

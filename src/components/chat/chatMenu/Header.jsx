@@ -2,7 +2,6 @@ import React, {useContext, useState} from 'react';
 import {AuthContext} from "../../../context/AuthProvider";
 import {Component, Image, Wrapper} from "./chatMenu.styled";
 import {Chat as MessageIcon} from "@mui/icons-material";
-import {Box} from "@mui/material";
 import HeaderMenu from "./HeaderMenu";
 import InfoDrawer from "../../drawer/InfoDrawer";
 

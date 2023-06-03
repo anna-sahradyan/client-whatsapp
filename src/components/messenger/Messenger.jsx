@@ -6,12 +6,13 @@ import {AuthContext} from "../../context/AuthProvider";
 import Chat from "../chat/Chat";
 
 
+
 const Messenger = () => {
     const {auth} = useContext(AuthContext);
     return (
         <>
             <Component>
-                {auth ?
+                { auth ?
                     <>
                         <Header>
                             <Toolbar>

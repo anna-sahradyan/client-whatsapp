@@ -61,11 +61,32 @@ export const InputFiled = styled(InputBase)`
   height: 15px;
 
 `;
+export const Add = styled(Box)`
+  position: absolute;
+  right: 3px;
+  bottom: -2px;
+`;
 /*component HeaderMenu*/
 
- export const MenuOption = styled(MenuItem)`
+export const MenuOption = styled(MenuItem)`
   font-size: 14px;
   padding: 15px 60px 5px 24px;
   color: #4A4A4A;
- 
+
 `
+/*components Conversations and Conversation*/
+export const ConComponent = styled(Box)`
+  display: flex;
+  height: 45px;
+  padding: 13px 0;
+  cursor: pointer;
+`;
+export const Cimage = styled(`img`)({
+    width:40,
+    height:40,
+    borderRadius:`50%`,
+    padding:`0 14px `,
+    objectFit:`cover`,
+    boxSizing: `content-box`,
+
+})
