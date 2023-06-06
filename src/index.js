@@ -16,6 +16,5 @@ root.render(
             <App/>
         </AuthProvider>
     </GoogleOAuthProvider>
-
     </Router>
 );

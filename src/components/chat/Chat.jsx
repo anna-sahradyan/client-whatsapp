@@ -3,6 +3,7 @@ import { Dialog} from "@mui/material";
 import {Component, dialog, Left, Right} from "./chat.styled";
 import ChatMenu from "./chatMenu/ChatMenu";
 import EmptyChat from "./EmptyChat";
+import ChatBox from "./ChatBox";
 
 
 const Chat = () => {
@@ -17,7 +18,8 @@ const Chat = () => {
                         <ChatMenu/>
                     </Left>
                     <Right>
-                        <EmptyChat/>
+                        {/*{<EmptyChat/>}*/}
+                        <ChatBox/>
                     </Right>
                 </Component>
             </Dialog>

@@ -7,7 +7,7 @@ import {addUser} from "../../service/api";
 
 const GoogleLoginComponent = () => {
     const {setAuth} = useContext(AuthContext);
-    const onLoginSuccess = async    (res) => {
+    const onLoginSuccess = async (res) => {
         const decoded = jwt_decode(res.credential);
         setAuth(decoded);
          await  addUser(decoded);

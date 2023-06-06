@@ -1,4 +1,4 @@
-import {Box, InputBase, styled} from "@mui/material";
+import {Box, Divider, InputBase, styled} from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 /*component Header*/
 export const Component = styled(Box)`
@@ -82,11 +82,20 @@ export const ConComponent = styled(Box)`
   cursor: pointer;
 `;
 export const Cimage = styled(`img`)({
-    width:40,
-    height:40,
-    borderRadius:`50%`,
-    padding:`0 14px `,
-    objectFit:`cover`,
+    width: 40,
+    height: 40,
+    borderRadius: `50%`,
+    padding: `0 14px `,
+    marginTop:`-12px`,
+    objectFit: `cover`,
     boxSizing: `content-box`,
 
-})
+});
+export const ConsComponent = styled(Box)`
+  height: 81vh;
+  overflow: overlay;
+`;
+export const StyledDivider = styled(Divider)`
+    margin:  0 0 0 70px;
+  background-color:#e9edef ;
+`;
