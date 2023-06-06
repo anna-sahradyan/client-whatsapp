@@ -146,6 +146,4 @@ export const InputField = styled(InputBase)`
   width: 100%;
   padding: 20px 20px 15px 25px;
   font-size: 14px;
-
-
 `;
