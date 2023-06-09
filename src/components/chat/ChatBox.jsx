@@ -6,6 +6,7 @@ import {AuthContext} from "../../context/AuthProvider";
 
 const ChatBox = () => {
     const {person} = useContext(AuthContext);
+
     return (
         <>
             <Box style={{height: '75%'}}>

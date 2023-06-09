@@ -5,19 +5,20 @@ import {AuthContext} from "../../../context/AuthProvider";
 import {ConsComponent, StyledDivider} from "./chatMenu.styled";
 
 
-const Conversations = () => {
+const Conversations = ({text}) => {
     const [users, setUsers] = useState([]);
     const {auth} = useContext(AuthContext);
 
     useEffect(() => {
         const fetchData = async () => {
             let response = await getUsers();
-            setUsers(response);
+            const filteredData = response.filter(user => user.name.toLowerCase().includes(text.toLowerCase()))
+            setUsers(filteredData);
 
         }
         fetchData();
 
-    }, []);
+    }, [text]);
     console.log(users)
     return (
         <>
@@ -25,10 +26,10 @@ const Conversations = () => {
                 {users?.map((item, index) =>
                     (
                         item.sub !== auth.sub &&
-                            <>
-                                <Conversation key={`${item}_${index}`} item={item}/>
-                                <StyledDivider/>
-                            </>
+                        <>
+                            <Conversation key={`${item}_${index}`} item={item}/>
+                            <StyledDivider/>
+                        </>
 
                     )
                 )}

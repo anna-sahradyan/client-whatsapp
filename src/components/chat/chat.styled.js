@@ -82,7 +82,7 @@ export const ChatImage = styled("img")({
     height: 30,
     width: 30,
     objectFit: `cover`,
-    borderRadius: `30%`
+    borderRadius: `50%`
 
 
 });
@@ -147,3 +147,4 @@ export const InputField = styled(InputBase)`
   padding: 20px 20px 15px 25px;
   font-size: 14px;
 `;
+

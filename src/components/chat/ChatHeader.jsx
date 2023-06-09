@@ -3,15 +3,15 @@ import {Box} from "@mui/material";
 import {MoreVert, Search} from "@mui/icons-material";
 import {ChatHeaderComponent, ChatImage, ChatRight, Name, Status} from "./chat.styled";
 
-const ChatHeader = () => {
+const ChatHeader = ({person}) => {
     return (
 
         <>
             <ChatHeaderComponent>
-                <ChatImage src="/img/icon3.png" alt="dp"/>
+                <ChatImage src={person.picture} alt="dp"/>
                 <Box>
-                    <Name>Name</Name>
-                    <Status>Online Status</Status>
+                    <Name>{person.name}</Name>
+                    <Status>Offline</Status>
                 </Box>
                 <ChatRight>
                     <Search/>

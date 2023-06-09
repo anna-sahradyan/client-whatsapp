@@ -1,5 +1,4 @@
 import React from 'react';
-import {Box} from "@mui/material";
 import EmojiEmotionsOutlinedIcon from '@mui/icons-material/EmojiEmotionsOutlined';
 import AttachFileOutlinedIcon from '@mui/icons-material/AttachFileOutlined';
 import MicOutlinedIcon from '@mui/icons-material/MicOutlined';
@@ -13,7 +12,7 @@ const Footer = () => {
         <>
          <Container>
 <EmojiEmotionsOutlinedIcon/>
-             <AttachFileOutlinedIcon/>
+             <AttachFileOutlinedIcon style={{ transform: "rotate(30deg)" }}/>
              <Search>
                  <InputField
                      placeholder={"type a message"}
