@@ -19,7 +19,7 @@ const Conversations = ({text}) => {
         fetchData();
 
     }, [text]);
-    console.log(users)
+
     return (
         <>
             <ConsComponent>

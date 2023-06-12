@@ -118,6 +118,9 @@ export const MessagesComponent = styled(Box)`
   height: 80vh;
   overflow-y: scroll;
 `;
+export const MessagesContainer = styled(Box)`
+ padding:1px 80px ;
+`;
 /*footer component*/
 export const Container = styled(Box)`
   height: 55px;
@@ -147,4 +150,34 @@ export const InputField = styled(InputBase)`
   padding: 20px 20px 15px 25px;
   font-size: 14px;
 `;
+/*component Message*/
 
+export const Own = styled(Box)`
+  background-color: #dcf8c6;
+  padding: 5px;
+  margin-left: auto;
+  max-width: 60%;
+  display: flex;
+  width: fit-content;
+  border-radius: 10px;
+  word-break: break-word;
+`;
+export const OwnWrapper = styled(Box)`
+  background: #FFFFFF;
+  padding: 5px;
+  max-width: 60%;
+  width: fit-content;
+  display: flex;
+  border-radius: 10px;
+  word-break: break-word;
+`;
+export const TextMessage = styled(Typography)`
+  font-size: 14px;
+  padding: 0 25px 0 5px;
+`;
+export const Time = styled(Typography)`
+  font-size: 10px;
+  color:#919191;
+  margin-top: 6px;
+  word-break: break-all;
+`;

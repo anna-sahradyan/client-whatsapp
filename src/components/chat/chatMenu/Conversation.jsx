@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {Box, Typography} from "@mui/material";
 import {ConComponent, Cimage} from "./chatMenu.styled";
 import {AuthContext} from "../../../context/AuthProvider";
@@ -6,11 +6,10 @@ import {setConversation} from "../../../service/api";
 
 
 const Conversation = ({item}) => {
-    // const [conversation, setConversation] = useState({});
     const {setPerson, auth} = useContext(AuthContext);
     const getUser = async () => {
         setPerson(item);
-        await setConversation({sendId: auth.sub, receiverId:item.sub})
+        await setConversation({senderId: auth.sub, receiverId:item.sub})
     }
     return (
         <>
