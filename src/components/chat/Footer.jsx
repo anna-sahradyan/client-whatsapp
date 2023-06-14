@@ -18,6 +18,7 @@ const Footer = ({sendText, setText, text, file, setFile}) => {
                 const data = new FormData();
                 data.append("name", file.name);
                 data.append("file", file);
+                console.log(data.append("name", file.name))
                 await uploadFile(data)
             }
         }

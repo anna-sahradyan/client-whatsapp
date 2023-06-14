@@ -61,6 +61,10 @@ export const getMessages = async (id) => {
     }
 }
 //?upload Files
-export const uploadFile = () => {
-
+export const uploadFile = async (data) => {
+    try {
+        return await axios.post(`${url}/file/upload`,data);
+    } catch (err) {
+        console.log(err.message)
+    }
 }
