@@ -3,11 +3,10 @@ import EmojiEmotionsOutlinedIcon from '@mui/icons-material/EmojiEmotionsOutlined
 import AttachFileOutlinedIcon from '@mui/icons-material/AttachFileOutlined';
 import MicOutlinedIcon from '@mui/icons-material/MicOutlined';
 import {Container, Search, InputField} from "./chat.styled";
-import {upload} from "@testing-library/user-event/dist/upload";
 import {uploadFile} from "../../service/api";
 
 
-const Footer = ({sendText, setText, text, file, setFile}) => {
+const Footer = ({sendText, setText, text, file, setFile, setImage}) => {
     const FileSend = (e) => {
         setFile(e.target.files[0]);
         setText(e.target.files[0].name)
@@ -19,7 +18,8 @@ const Footer = ({sendText, setText, text, file, setFile}) => {
                 data.append("name", file.name);
                 data.append("file", file);
                 console.log(data.append("name", file.name))
-                await uploadFile(data)
+                let response = await uploadFile(data);
+                setImage(response.data);
             }
         }
         getImage();

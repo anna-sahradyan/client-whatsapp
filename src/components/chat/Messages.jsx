@@ -11,22 +11,40 @@ const Messages = ({person, conversation}) => {
     const [text, setText] = useState("");
     const [messages, setMessages] = useState([]);
     const [file, setFile] = useState();
+    const [image, setImage] = useState("");
     const sendText = async (e) => {
         const code = e.keyCode || e.which;
         if (!text.trim()) return
         if (code === 13) {
-            let message = {
-                senderId: auth.sub,
-                receiverId: person.sub,
-                conversationId: conversation._id,
-                type: "text",
-                text: text,
-                createdAt: new Date()
+            let message = {};
+            if (!file) {
+                message = {
+                    senderId: auth.sub,
+                    receiverId: person.sub,
+                    conversationId: conversation._id,
+                    type: "text",
+                    text: text,
+                    createdAt: new Date()
+
+                };
 
             }
+         else {
+            message = {
+                senderId: auth.sub,
+                conversationId: conversation._id,
+                receiverId:person.sub,
+                type: 'file',
+                text: image,
+                createdAt: new Date()
+            };
+
+        }
             setMessages((prevMessages) => [...prevMessages, message]);
             await newMessage(message);
             setText(" ");
+            setImage("");
+            setFile("");
 
 
         }
@@ -56,7 +74,8 @@ const Messages = ({person, conversation}) => {
                     text={text}
                     file={file}
                     setFile={setFile}
-
+                    setImage={setImage}
+                    image={image}
 
                 />
             </Wrapper>
