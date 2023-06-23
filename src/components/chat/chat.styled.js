@@ -111,8 +111,7 @@ export const ChatRight = styled(Box)`
 export const Wrapper = styled(Box)`
   background-image: url(${'https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png'});
   background-size: 50%;
-
-
+  
 `;
 export const MessagesComponent = styled(Box)`
   height: 80vh;
@@ -178,6 +177,6 @@ export const TextMessage = styled(Typography)`
 export const Time = styled(Typography)`
   font-size: 10px;
   color:#919191;
-  margin-top: 6px;
   word-break: break-all;
+  margin-top: 10px;
 `;

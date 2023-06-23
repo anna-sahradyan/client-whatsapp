@@ -1,9 +1,10 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import {MessagesComponent, MessagesContainer, Wrapper} from "./chat.styled";
 import Footer from "./Footer";
 import {AuthContext} from "../../context/AuthProvider";
 import {getMessages, newMessage} from "../../service/api";
 import Message from "./Message";
+
 
 
 const Messages = ({person, conversation}) => {
@@ -12,6 +13,9 @@ const Messages = ({person, conversation}) => {
     const [messages, setMessages] = useState([]);
     const [file, setFile] = useState();
     const [image, setImage] = useState("");
+    const scrollRef = useRef();
+
+
     const sendText = async (e) => {
         const code = e.keyCode || e.which;
         if (!text.trim()) return
@@ -28,18 +32,17 @@ const Messages = ({person, conversation}) => {
 
                 };
 
-            }
-         else {
-            message = {
-                senderId: auth.sub,
-                conversationId: conversation._id,
-                receiverId:person.sub,
-                type: 'file',
-                text: image,
-                createdAt: new Date()
-            };
+            } else {
+                message = {
+                    senderId: auth.sub,
+                    conversationId: conversation._id,
+                    receiverId: person.sub,
+                    type: 'file',
+                    text: image,
+                    createdAt: new Date()
+                };
 
-        }
+            }
             setMessages((prevMessages) => [...prevMessages, message]);
             await newMessage(message);
             setText(" ");
@@ -58,13 +61,18 @@ const Messages = ({person, conversation}) => {
         }
         conversation._id && getMessageDetails();
     }, [person._id, conversation._id])
+//?
+    useEffect(() => {
+        scrollRef.current?.scrollIntoView({transition:"smooth"})
+
+    }, [messages])
     return (
         <>
             <Wrapper>
                 <MessagesComponent>
                     {messages && messages?.map((message, index) =>
                         (
-                            <MessagesContainer>
+                            <MessagesContainer ref={scrollRef}>
                                 <Message key={`${message}_${index}`} item={message}/></MessagesContainer>
                         ))}
                 </MessagesComponent>

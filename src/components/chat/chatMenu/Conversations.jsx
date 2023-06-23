@@ -7,7 +7,7 @@ import {ConsComponent, StyledDivider} from "./chatMenu.styled";
 
 const Conversations = ({text}) => {
     const [users, setUsers] = useState([]);
-    const {auth} = useContext(AuthContext);
+    const {auth, socket, setActiveUsers} = useContext(AuthContext);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -19,6 +19,13 @@ const Conversations = ({text}) => {
         fetchData();
 
     }, [text]);
+    useEffect(() => {
+        socket.current.emit("addUsers", auth);
+        socket.current.on("getUsers", users => {
+            setActiveUsers(users)
+console.log(users)
+        })
+    }, [auth])
 
     return (
         <>

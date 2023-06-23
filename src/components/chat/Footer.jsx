@@ -9,7 +9,9 @@ import {uploadFile} from "../../service/api";
 const Footer = ({sendText, setText, text, file, setFile, setImage}) => {
     const FileSend = (e) => {
         setFile(e.target.files[0]);
-        setText(e.target.files[0].name)
+        setText(e.target.files[0].name);
+
+
     }
     useEffect(() => {
         const getImage = async () => {
@@ -17,7 +19,6 @@ const Footer = ({sendText, setText, text, file, setFile, setImage}) => {
                 const data = new FormData();
                 data.append("name", file.name);
                 data.append("file", file);
-                console.log(data.append("name", file.name))
                 let response = await uploadFile(data);
                 setImage(response.data);
             }
@@ -31,13 +32,17 @@ const Footer = ({sendText, setText, text, file, setFile, setImage}) => {
                 <EmojiEmotionsOutlinedIcon/>
                 <label for="fileInput">
                     <AttachFileOutlinedIcon style={{transform: "rotate(30deg)"}}/>
-                    <input type="file" id={"fileInput"} style={{display: "none"}}
-                           onChange={(e) => FileSend(e)}
+                    <input
+                        type="file"
+                        id={"fileInput"}
+                        style={{display: "none"}}
+                        onChange={(e) => FileSend(e)}
 
                     />
                 </label>
                 <Search>
                     <InputField
+                        inputProps={{ 'aria-label': 'search' }}
                         placeholder={"type a message"}
                         onChange={(e) => setText(e.target.value)}
                         onKeyPress={(e) => sendText(e)}
