@@ -24,7 +24,7 @@ export const getUsers = async () => {
 export const setConversation = async (data) => {
     try {
         await axios.post(`${url}/conversation/add`, data)
-        console.log(data)
+
 
     } catch (err) {
         console.log(err.message);
@@ -34,7 +34,7 @@ export const setConversation = async (data) => {
 export const getConversation = async (users) => {
     try {
         let response = await axios.post(`${url}/conversation/get`, users)
-        console.log(response)
+
         return response.data;
 
 

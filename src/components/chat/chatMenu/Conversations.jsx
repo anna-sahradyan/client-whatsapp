@@ -14,16 +14,13 @@ const Conversations = ({text}) => {
             let response = await getUsers();
             const filteredData = response.filter(user => user.name.toLowerCase().includes(text.toLowerCase()))
             setUsers(filteredData);
-
         }
         fetchData();
-
     }, [text]);
     useEffect(() => {
         socket.current.emit("addUsers", auth);
         socket.current.on("getUsers", users => {
             setActiveUsers(users)
-console.log(users)
         })
     }, [auth])
 

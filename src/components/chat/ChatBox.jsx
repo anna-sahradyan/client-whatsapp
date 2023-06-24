@@ -13,7 +13,7 @@ const ChatBox = () => {
         const getConversationDetails = async () => {
             let data = await getConversation({senderId: auth?.sub, receiverId: person?.sub});
             setConversation(data);
-console.log(conversation)
+
         }
         getConversationDetails();
     }, [person?.sub]);
