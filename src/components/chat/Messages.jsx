@@ -7,20 +7,20 @@ import Message from "./Message";
 
 
 const Messages = ({person, conversation}) => {
-    const {auth, socket} = useContext(AuthContext);
-    const [text, setText] = useState();
+    const {auth, socket, newMessageFlag, setNewMessageFlag} = useContext(AuthContext);
+    const [text, setText] = useState("");
     const [messages, setMessages] = useState([]);
     const [file, setFile] = useState();
     const [incomingMessage, setIncomingMessage] = useState(null);
     const [image, setImage] = useState("");
-
-
     const scrollRef = useRef();
 
     const receiverId = conversation?.members?.find(member => member !== auth.sub);
+    const trimmedText = text.trim();
+
     const sendText = async (e) => {
         const code = e.keyCode || e.which;
-        if (!text.trim()) return
+        if (!trimmedText || text === "") return
         if (code === 13) {
             let message = {};
             if (!file) {
@@ -45,15 +45,12 @@ const Messages = ({person, conversation}) => {
                 };
 
             }
-            setMessages((prevMessages) => [...prevMessages, message]);
-
-            socket.current.emit("sendMessage", message)
+            socket.current.emit("sendMessage", message);
             await newMessage(message);
             setText(" ");
             setImage("");
-            setFile("");
-
-
+            setFile();
+            setNewMessageFlag(prev => !prev)
         }
 
     }
@@ -69,19 +66,19 @@ const Messages = ({person, conversation}) => {
     }, []);
 
     useEffect(() => {
-        incomingMessage && conversation?.members?.includes(incomingMessage.senderId) && setMessages(prev => [...prev, incomingMessage]);
+        incomingMessage && conversation?.members?.includes(incomingMessage.senderId) && setMessages((prev) => [...prev, incomingMessage]);
 
     }, [incomingMessage, conversation]);
 
 
-        useEffect(() => {
-            const getMessageDetails = async () => {
-                let data = await getMessages(conversation?._id);
-                setMessages(data)
-            }
-            getMessageDetails();
+    useEffect(() => {
+        const getMessageDetails = async () => {
+            let data = await getMessages(conversation?._id);
+            setMessages(data)
+        }
+        getMessageDetails();
 
-        }, [person._id, conversation?._id])
+    }, [person._id, conversation?._id,newMessageFlag])
 //?
     useEffect(() => {
         scrollRef.current?.scrollIntoView({transition: "smooth"})
@@ -91,7 +88,7 @@ const Messages = ({person, conversation}) => {
         <>
             <Wrapper>
                 <MessagesComponent>
-                    {messages && messages?.map((message, index) =>
+                    {messages && messages.map((message, index) =>
                         (
                             <MessagesContainer ref={scrollRef}>
                                 <Message key={`${message}_${index}`} item={message}/></MessagesContainer>

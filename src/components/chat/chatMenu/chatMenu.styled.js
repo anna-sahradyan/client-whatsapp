@@ -1,4 +1,4 @@
-import {Box, Divider, InputBase, styled} from "@mui/material";
+import {Box, Divider, InputBase, styled, Typography} from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 /*component Header*/
 export const Component = styled(Box)`
@@ -77,7 +77,7 @@ export const MenuOption = styled(MenuItem)`
 /*components Conversations and Conversation*/
 export const ConComponent = styled(Box)`
   display: flex;
-  height: 45px;
+  height: 55px;
   padding: 13px 0;
   cursor: pointer;
 `;
@@ -86,7 +86,7 @@ export const Cimage = styled(`img`)({
     height: 40,
     borderRadius: `50%`,
     padding: `0 14px `,
-    marginTop:`-12px`,
+    marginTop: `-12px`,
     objectFit: `cover`,
     boxSizing: `content-box`,
 
@@ -96,6 +96,25 @@ export const ConsComponent = styled(Box)`
   overflow: overlay;
 `;
 export const StyledDivider = styled(Divider)`
-    margin:  0 0 0 70px;
-  background-color:#e9edef ;
+  margin: 0 0 0 70px;
+  background-color: #e9edef;
+`;
+export const Timestamp = styled(Typography)`
+  font-size: 12px;
+  margin-left: auto;
+  color: #00000099;
+  margin-right: 20px;
+
+
+`;
+export const Text = styled(Typography)`
+  font-size: 12px;
+  color: rgba(0,0,0,0.6);
+  margin-right: 20px;
+  
+`;
+export const Container = styled(Box)`
+  display: flex;
+
+
 `;

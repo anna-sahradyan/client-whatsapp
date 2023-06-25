@@ -7,6 +7,7 @@ const AuthProvider = ({children}) => {
     const [auth, setAuth] = useState();
     const [person, setPerson] = useState({});
     const [activeUsers, setActiveUsers] = useState([]);
+    const [newMessageFlag, setNewMessageFlag] = useState(false);
     const socket = useRef();
 
     useEffect(() => {
@@ -23,7 +24,9 @@ const AuthProvider = ({children}) => {
                     setPerson,
                     socket,
                     activeUsers,
-                    setActiveUsers
+                    setActiveUsers,
+                    newMessageFlag,
+                    setNewMessageFlag
                 }}
             >
                 {children}
